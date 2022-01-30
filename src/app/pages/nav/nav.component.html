@@ -1,0 +1,11 @@
+<mat-toolbar class="tools">
+    <mat-toolbar-row class="rows"> 
+        <a mat-button [routerLink]="['/']">
+            Főoldal
+          </a>
+          <button mat-button *ngFor="let item of categories" [routerLink]="[ item.url ]" routerLinkActive="active">
+            {{item.title}}&nbsp;
+            <mat-icon>{{item.icon}}</mat-icon>
+          </button>
+    </mat-toolbar-row>
+</mat-toolbar>

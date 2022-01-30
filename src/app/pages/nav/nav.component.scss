@@ -1,0 +1,11 @@
+.tools{
+    background-color: dodgerblue;
+    min-height: fit-content;
+}
+.rows{
+    display: flex;
+    flex-wrap: wrap;
+    padding: auto;
+    justify-content: space-evenly;
+    height: min-content;
+}

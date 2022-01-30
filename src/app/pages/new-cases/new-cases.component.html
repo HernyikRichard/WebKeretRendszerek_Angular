@@ -1,0 +1,56 @@
+  <form [formGroup]="form" (ngSubmit)="mentes()" >
+  
+  <mat-vertical-stepper [linear]="isLinear"  #myForm>
+
+    <mat-step [stepControl]="form">
+      <form [formGroup]="form">
+        <ng-template matStepLabel>Add meg a nevet</ng-template>
+        <mat-form-field>
+          <mat-label>Név</mat-label>
+          <div formGroupName="subject">
+          <input matInput placeholder="Pl: Kiss Pista" formControlName="display" required>
+        </div>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Következő</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <form [formGroup]="form">
+        <ng-template matStepLabel>Add meg a státuszt</ng-template>
+        <mat-form-field> 
+            <mat-select [(ngModel)]="selectedValue" formControlName="status">
+                <mat-option *ngFor="let elem of stat" [value]="elem.value" required>
+                  {{elem.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Vissza</button>
+          <button mat-button matStepperNext>Köbetkező</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+        <form [formGroup]="form">effectiveDateTime
+          <ng-template matStepLabel>Add meg az időpontott</ng-template>
+          
+          <div>
+            <button mat-button matStepperPrevious>Vissza</button>
+            <button mat-button matStepperNext>Köbetkező</button>
+          </div>
+        </form>
+      </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>Végeztél nincs további teendőd mint menteni.</p>
+      <div>
+        <button mat-button matStepperPrevious>Vissza</button>
+        <button mat-button type="submit">Mentés</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+  </form>
